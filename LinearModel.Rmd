@@ -95,15 +95,15 @@ The generic scatter plot which depicts ARM and GRIP above shows that there is a 
 basicNN <- ggplot(data,aes(y=SIMS,x=GRIP))
 ```
 ```{r}
-model.1 <- lm(SIMS~GRIP,data=data)
-summary.lm(model.1)
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
 ```
 ```{r}
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
 
 
-The scatter plot above shows the SIMS result as a function of ARM. The data points are each individual score and corresponding arm strength. The blue line indicates the best linear fit to predict SIMS as a function of line. The shaded area is the uncertainty associated with where that blue line would be if you repeated the experiment a large number of times. 
+The scatter plot above shows the SIMS result as a function of GRIP. The data points are each individual score and corresponding arm strength. The blue line indicates the best linear fit to predict SIMS as a function of line. The shaded area is the uncertainty associated with where that blue line would be if you repeated the experiment a large number of times. 
   
 
 ### Numerical Results
@@ -123,7 +123,7 @@ summary.lm(model.1)
 ```
 
 
-The equation is SIMS = -4.095160 + 0.054563 * ARM 
+The equation is SIMS = -4.809675 + 0.045463 * GRIP 
 
 
 ```{r}
