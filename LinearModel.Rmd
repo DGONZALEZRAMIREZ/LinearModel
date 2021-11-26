@@ -86,7 +86,7 @@ The lwr and upr are the 95% confidence intervals for the predicted SIMS scores w
 plot(SIMS~GRIP,data=data)
 ```
 
-The generic scatter plot which depicts ARM and GRIP above shows that there is a concentration in the middle. 
+The generic scatter plot which depicts SIMS score and GRIP above shows that there is a concentration in the middle. 
 
 
 ## GGPlot
@@ -112,14 +112,14 @@ cor(SIMS~GRIP,data=data)
 ```
 
 The number above indicates the correlation between the measure SIMdata <- ggplot(data,aes(y=SIMS,x=GRIP))
-S score and ARM force. Correlation is a measure of the linear association between the two variables. 
+S score and GRIP force. Correlation is a measure of the linear association between the two variables. 
 
 
 
 ### Inferential Results
 ```{r}
-model.1 <- lm(SIMS~GRIP,data=data)
-summary.lm(model.1)
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
 ```
 
 
