@@ -25,7 +25,7 @@ Form three regression models; Model1 is SIMS~ARM, Model2 is SIMS~GRIP, and Model
 plot(SIMS~ARM,data=data)
 ```
 
-The scatterplot above shows that there is a linear trend going uphill and to the right which is a sign of a positively correlated set of data. The greater the pounds of arm force(ARM), the greater the simulation score (SIMS).
+The generic scatter plot above shows that there is a linear trend going uphill and to the right which is a sign of a positively correlated set of data. The greater the pounds of arm force(ARM), the greater the simulation score (SIMS).
 
 
 ## GGPlot
@@ -42,9 +42,10 @@ summary.lm(model.1)
 ```{r}
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
+
+
+The scatter plot above shows the SIMS result as a function of ARM. The data points are each individual score and corresponding arm strength. The blue line indicates the best linear fit to predict SIMS as a function of line. The shaded area is the uncertainty associated with where that blue line would be if you repeated the experiment a large number of times. 
   
-
-
 
 ### Numerical Results
 ```{r}
@@ -72,7 +73,9 @@ predict.lm(model.1,newData,interval="prediction")
 
 ```
 
+Fit is the predicted ARM score when you have an ARM strength of 88.
 
+The lwr and upr are the 95% confidence intervals for the predicted SIMS scores when ARM score is 88.
 
 ## SIMS~GRIP Regression
 
@@ -85,16 +88,46 @@ plot(SIMS~GRIP,data=data)
 
 According to the scatterplot above, GRIP has a smaller correlation with SIMS than is the case with SIMS and ARM. 
 
+## GGPlot
+
+```{r}
+basicNN <- ggplot(data,aes(y=SIMS,x=GRIP))
+```
+
+```{r}
+model.1 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.1)
+```
+
+```{r}
+basicNN + geom_point() + geom_smooth(method=lm)
+``` 
+
+
 ### Numerical Results
 ```{r}
 cor(SIMS~GRIP,data=data)
 ```
+
+The number above indicates the correlation between the measure SIMdata <- ggplot(data,aes(y=SIMS,x=ARM))
+S score and ARM force. Correlation is a measure of the linear association between the two variables. 
+
 
 
 ### Inferential Results
 ```{r}
 model.1 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.1)
+```
+
+
+The equation is SIMS = -4.095160 + 0.054563 * ARM 
+
+
+```{r}
+newData=data.frame(GRIP=94,ARM=88)
+predict.lm(model.1,newData,interval="prediction")
+
 ```
 
 
