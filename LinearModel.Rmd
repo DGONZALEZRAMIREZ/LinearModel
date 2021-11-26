@@ -28,16 +28,22 @@ plot(SIMS~ARM,data=data)
 The scatterplot above shows that there is a linear trend going uphill and to the right which is a sign of a positively correlated set of data. The greater the pounds of arm force(ARM), the greater the simulation score (SIMS).
 
 
-#### Scatterplot with model fit
+## GGPlot
 
 ```{r}
 basicNN <- ggplot(data,aes(y=SIMS,x=ARM))
-basicNN + geom_point()
+```
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+```{r}
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
+  
 
-
-The plot above shows that this is the best fit line for our data. It shows that if we are looking for an x-value of 88 and a y-value of 0.7 it is predicted to fall into place.
 
 
 ### Numerical Results
@@ -70,6 +76,26 @@ predict.lm(model.1,newData,interval="prediction")
 
 ## SIMS~GRIP Regression
 
+
+### Scatterplot
+
+```{r}
+plot(SIMS~GRIP,data=data)
+```
+
+According to the scatterplot above, GRIP has a smaller correlation with SIMS than is the case with SIMS and ARM. 
+
+### Numerical Results
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+
+### Inferential Results
+```{r}
+model.1 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.1)
+```
 
 
 
