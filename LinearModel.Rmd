@@ -86,30 +86,32 @@ The lwr and upr are the 95% confidence intervals for the predicted SIMS scores w
 plot(SIMS~GRIP,data=data)
 ```
 
-According to the scatterplot above, GRIP has a smaller correlation with SIMS than is the case with SIMS and ARM. 
+The generic scatter plot above shows that there is a linear trend going uphill and to the right which is a sign of a positively correlated set of data. The greater the pounds of arm force(ARM), the greater the simulation score (SIMS).
+
 
 ## GGPlot
 
 ```{r}
 basicNN <- ggplot(data,aes(y=SIMS,x=GRIP))
 ```
-
 ```{r}
 model.1 <- lm(SIMS~GRIP,data=data)
 summary.lm(model.1)
 ```
-
 ```{r}
 basicNN + geom_point() + geom_smooth(method=lm)
 ``` 
 
+
+The scatter plot above shows the SIMS result as a function of ARM. The data points are each individual score and corresponding arm strength. The blue line indicates the best linear fit to predict SIMS as a function of line. The shaded area is the uncertainty associated with where that blue line would be if you repeated the experiment a large number of times. 
+  
 
 ### Numerical Results
 ```{r}
 cor(SIMS~GRIP,data=data)
 ```
 
-The number above indicates the correlation between the measure SIMdata <- ggplot(data,aes(y=SIMS,x=ARM))
+The number above indicates the correlation between the measure SIMdata <- ggplot(data,aes(y=SIMS,x=GRIP))
 S score and ARM force. Correlation is a measure of the linear association between the two variables. 
 
 
@@ -129,6 +131,11 @@ newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,newData,interval="prediction")
 
 ```
+
+Fit is the predicted ARM score when you have an ARM strength of 88.
+
+The lwr and upr are the 95% confidence intervals for the predicted SIMS scores when ARM score is 88.
+
 
 
 
