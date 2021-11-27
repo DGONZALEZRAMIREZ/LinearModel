@@ -142,7 +142,7 @@ model 1(SIMS~ARM) has a slightly lower residual standard error score of 1.226 wh
 
 model 1(SIMS~ARM) has a higher adjusted r squared score of 0.467 while model2(SIMS~GRIP) scored a lower 0.4053
 
-In this case it appears to be that model 1 is slightly better because it has a smaller residual standard error and a higher adjusted r squared score.
+In this case it appears to be that model 1 is slightly better because it has a smaller residual standard error and a higher adjusted R-squared value.
 
 
 
@@ -153,6 +153,27 @@ In this case it appears to be that model 1 is slightly better because it has a s
 model.3 <- lm(SIMS~ARM + GRIP,data=data)
 summary.lm(model.3)
 ``` 
+
+This model appears to be a good fit because the adjusted R-squared value and the residual standard error was smaller than the previous models (1 and 2).
+
+
+
+## Inferential Test
+
+This is the inferential test to compare all models. The test is anova.
+
+$H_0$: There is no difference in the models and their ability to predict the data. Both of them can predict the data (SIMS) equally.
+
+$H_A$: There is a difference in how well the models(model1 and model2) are able to predict the data.
+
+
+```{r}
+anova(model.2,model.3)
+```
+
+The p value is 0.000000001495 which is a very small number. 
+
+We reject the null hypothesis because we have evidence that model 3 is better than model 2. There is a difference between how well the models are able to interpret the data.
 
 
 ## Model Comparisons
