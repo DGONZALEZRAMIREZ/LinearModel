@@ -164,14 +164,14 @@ This is the inferential test to compare all models. The test is anova.
 
 $H_0$: There is no difference in the models and their ability to predict the data. Both of them can predict the data (SIMS) equally.
 
-$H_A$: There is a difference in how well the models(model1 and model2) are able to predict the data.
+$H_A$: There is a difference in how well the models(model1 and model3) are able to predict the data.
 
 
 ```{r}
-anova(model.2,model.3)
+anova(model.1,model.3)
 ```
 
-The p value is 0.000000001495 which is a very small number. 
+The p value is 0.000001495 which is a very small number. 
 
 We reject the null hypothesis because we have evidence that model 3 is better than model 2. There is a difference between how well the models are able to interpret the data.
 
