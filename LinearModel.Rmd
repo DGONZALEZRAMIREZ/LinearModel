@@ -66,7 +66,7 @@ summary.lm(model.1)
 
 The equation is SIMS = -4.095160 + 0.054563 * ARM 
 
-
+## Prediction
 ```{r}
 newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.1,newData,interval="prediction")
@@ -125,7 +125,7 @@ summary.lm(model.2)
 
 The equation is SIMS = -4.809675 + 0.045463 * GRIP 
 
-
+## Prediction
 ```{r}
 newData=data.frame(GRIP=94,ARM=88)
 predict.lm(model.2,newData,interval="prediction")
@@ -156,6 +156,23 @@ summary.lm(model.3)
 
 This model appears to be a good fit because the adjusted R-squared value and the residual standard error was smaller than the previous models (1 and 2).
 
+
+## Numerical Results
+
+
+```{r}
+cor(SIMS~ARM + GRIP,data=data)
+```
+
+```{r}
+newData=data.frame(GRIP=94,ARM=88)
+predict.lm(model.3,newData,interval="prediction")
+
+```
+
+Fit is the predicted SIMS score when you have a GRIP strength of 94 and an ARM strength of 88.
+
+The lwr and upr are the 95% confidence intervals for predicted SIMS score when the GRIP score is 94 and the ARM strength of 88.
 
 
 ## Inferential Test
