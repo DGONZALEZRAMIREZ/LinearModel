@@ -128,14 +128,21 @@ The equation is SIMS = -4.809675 + 0.045463 * GRIP
 
 ```{r}
 newData=data.frame(GRIP=94,ARM=88)
-predict.lm(model.1,newData,interval="prediction")
+predict.lm(model.2,newData,interval="prediction")
 
 ```
 
-Fit is the predicted ARM score when you have an ARM strength of 88.
+Fit is the predicted SIMS score when you have a GRIP strength of 94.
 
-The lwr and upr are the 95% confidence intervals for the predicted SIMS scores when ARM score is 88.
+The lwr and upr are the 95% confidence intervals for the predicted SIMS scores when GRIP strength is 94.
 
+Comparing the two models, model 1 with model 2:
+
+model 1(SIMS~ARM) has a slightly lower residual standard error score of 1.226 while model 2(SIMS~GRIP) has a score of 1.295.
+
+model 1(SIMS~ARM) has a higher adjusted r squared score of 0.467 while model2(SIMS~GRIP) scored a lower 0.4053
+
+In this case it appears to be that model 1 is slightly better because it has a smaller residual standard error and a higher adjusted r squared score.
 
 
 
