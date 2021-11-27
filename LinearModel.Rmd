@@ -149,6 +149,11 @@ In this case it appears to be that model 1 is slightly better because it has a s
 ## SIMS~ARM+GRIP Regression
 
 
+```{r}
+model.3 <- lm(SIMS~ARM + GRIP,data=data)
+summary.lm(model.3)
+``` 
+
 
 ## Model Comparisons
 
